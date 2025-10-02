@@ -28,6 +28,7 @@ with open(CONFIG_PATH, "r", encoding="utf-8") as f:
 OPENROUTER_API_KEY = cfg.get("OPENROUTER_API_KEY", "")
 MODEL = cfg.get("MODEL", "deepseek/deepseek-chat-v3.1:free")
 MAX_TOKENS = int(cfg.get("MAX_TOKENS", 2000))
+print("DEBUG: API key loaded?", bool(OPENROUTER_API_KEY), OPENROUTER_API_KEY[:8])
 
 OPENROUTER_CHAT_URL = "https://openrouter.ai/api/v1/chat/completions"
 

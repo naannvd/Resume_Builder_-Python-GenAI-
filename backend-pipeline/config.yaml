@@ -1,5 +1,5 @@
-OPENROUTER_API_KEY: "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"
+OPENROUTER_API_KEY: "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"
 MODEL: "deepseek/deepseek-chat-v3.1:free"
 
 # Optional: adjust max_tokens if you want longer responses
-MAX_TOKENS: 4000
+MAX_TOKENS: 2000

@@ -43,7 +43,7 @@ def export_resume_to_pdf(data, output_path: str = None):
     if data.get("experience"):
         story.append(Paragraph("Work Experience", section_style))
         for exp in data["experience"]:
-            job_title = f"{exp.get('title', '')} – {exp.get('company', '')} ({exp.get('start_year', '')} – {exp.get('end_year', '')})"
+            job_title = f"<b>{exp.get('title', '')}</b> – {exp.get('company', '')} ({exp.get('start_year', '')} – {exp.get('end_year', '')})"
             story.append(Paragraph(job_title, body_style))
             bullets = [ListItem(Paragraph(d, body_style)) for d in exp.get("description", [])]
             if bullets:
@@ -63,8 +63,8 @@ def export_resume_to_pdf(data, output_path: str = None):
     # Technical Skills
     if data.get("technical_skills"):
         story.append(Paragraph("Technical Skills", section_style))
-        skills = ", ".join(data.get("technical_skills", []))
-        story.append(Paragraph(skills, body_style))
+        skill_bullets = [ListItem(Paragraph(skill, body_style)) for skill in data.get("technical_skills", [])]
+        story.append(ListFlowable(skill_bullets, bulletType="bullet", leftIndent=20))
         story.append(Spacer(1, 12))
 
     # Education
